@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context="com.example.goran.vtorabrainsteraplikacija.Main4Activity">
+
+
+    <Button
+        android:id="@+id/add"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="Add" />
+
+
+    <Button
+        android:id="@+id/edit"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="Edit"
+        android:layout_alignParentRight="true"/>
+
+
+    <Spinner
+        android:id="@+id/spiner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/add">
+
+    </Spinner>
+
+    <TextView
+        android:id="@+id/info"
+        android:padding="10dp"
+        style="@style/Base.TextAppearance.AppCompat.Medium"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/spiner"
+        android:textColor="@android:color/white"/>
+
+
+</RelativeLayout>
