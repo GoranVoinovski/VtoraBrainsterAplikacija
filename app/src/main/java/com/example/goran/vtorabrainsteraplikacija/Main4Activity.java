@@ -1,6 +1,8 @@
 package com.example.goran.vtorabrainsteraplikacija;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -71,7 +73,24 @@ public class Main4Activity extends AppCompatActivity {
 
         if (users2.username.equals("Guest")){
 
-            Toast.makeText(this,"You cant add user on this account",Toast.LENGTH_LONG).show();
+            final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Change User");
+            builder.setMessage("Do you want to create a profile");
+            builder.setPositiveButton("Yes" , new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent createuser = new Intent(Main4Activity.this, MainActivity.class);
+                    startActivity(createuser);
+                }
+            });
+            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            builder.create().show();
+
         }else {
 
             Intent intent = new Intent(Main4Activity.this, Main3Activity.class);
@@ -86,7 +105,24 @@ public class Main4Activity extends AppCompatActivity {
 
         if (users2.username.equals("Guest")){
 
-            Toast.makeText(this,"You cant edit this user",Toast.LENGTH_LONG).show();
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Change User");
+        builder.setMessage("Do you want to create a profile");
+        builder.setPositiveButton("Yes" , new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent createuser = new Intent(Main4Activity.this, MainActivity.class);
+                startActivity(createuser);
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+
+            }
+        });
+            builder.create().show();
         }else {
 
             Intent intent = new Intent(Main4Activity.this, Main3Activity.class);
