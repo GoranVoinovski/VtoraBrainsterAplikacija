@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -34,7 +35,15 @@ public class Main4Activity extends AppCompatActivity {
 
 
         Intent intent1 = getIntent();
-        users = (ArrayList<Users>) intent1.getSerializableExtra("Lista");
+        if (intent1.hasExtra("Guest")) {
+
+            Users user = new Users();
+            users.add(user);
+
+        }else {
+            users = (ArrayList<Users>) intent1.getSerializableExtra("Lista");
+
+        }
 
         adapter = new ArrayAdapter<Users>(this,android.R.layout.simple_list_item_1,users);
         adapter.notifyDataSetChanged();
@@ -60,21 +69,31 @@ public class Main4Activity extends AppCompatActivity {
     @OnClick(R.id.add)
     public void Add(View view){
 
-        Intent intent = new Intent(Main4Activity.this, Main3Activity.class);
-        intent.putExtra("Add","Add");
-        startActivityForResult(intent, kluc);
+        if (users2.username.equals("Guest")){
 
+            Toast.makeText(this,"You cant add user on this account",Toast.LENGTH_LONG).show();
+        }else {
+
+            Intent intent = new Intent(Main4Activity.this, Main3Activity.class);
+            intent.putExtra("Add", "Add");
+            startActivityForResult(intent, kluc);
+        }
 
     }
 
     @OnClick(R.id.edit)
     public void Edit(View view){
 
-        Intent intent = new Intent(Main4Activity.this, Main3Activity.class);
-        intent.putExtra("Users",users2);
-        startActivityForResult(intent, kluc);
+        if (users2.username.equals("Guest")){
 
+            Toast.makeText(this,"You cant edit this user",Toast.LENGTH_LONG).show();
+        }else {
 
+            Intent intent = new Intent(Main4Activity.this, Main3Activity.class);
+            intent.putExtra("Users", users2);
+            startActivityForResult(intent, kluc);
+
+        }
     }
 
 

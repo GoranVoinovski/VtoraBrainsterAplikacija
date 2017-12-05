@@ -34,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
     public void KlikGuest(View view){
 
         Users gostin = new Users();
-
-        Intent intentguest = new Intent(MainActivity.this, Main3Activity.class);
+        Intent intentguest = new Intent(MainActivity.this, Main4Activity.class);
+        intentguest.putExtra("Guest", gostin);
         startActivity(intentguest);
 
 
